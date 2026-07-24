@@ -1,0 +1,33 @@
+name: Build Windows Installer
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Build plugin
+        run: cargo xtask bundle ssm_plugin --release
+
+      - name: Install Inno Setup
+        run: choco install innosetup --no-progress
+
+      - name: Build installer
+        run: |
+          iscc installer/SSM.iss
+
+      - name: Upload installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: SSM-Windows-Installer
+          path: installer/output/*.exe
