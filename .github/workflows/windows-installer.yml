@@ -33,5 +33,5 @@ jobs:
       - name: Upload installer
         uses: actions/upload-artifact@v4
         with:
-          name: SSM-Windows-Installer
-          path: installer/output/*.exe
+          name: GAIN-Windows-Installer
+          path: installer/windows/output/*.exe
