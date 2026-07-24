@@ -19,12 +19,16 @@ jobs:
       - name: Build plugin
         run: cargo xtask bundle gain_plugin --release
 
+      - name: Check bundle output
+        run: |
+          dir target
+          dir target\bundled
+
       - name: Install Inno Setup
         run: choco install innosetup --no-progress
 
       - name: Build installer
-        run: |
-          iscc installer/windows/GAIN.iss
+        run: iscc installer/windows/GAIN.iss
 
       - name: Upload installer
         uses: actions/upload-artifact@v4
