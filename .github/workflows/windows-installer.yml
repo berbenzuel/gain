@@ -17,7 +17,7 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
 
       - name: Build plugin
-        run: cargo xtask bundle ssm_plugin --release
+        run: cargo xtask bundle gain_plugin --release
 
       - name: Install Inno Setup
         run: choco install innosetup --no-progress
