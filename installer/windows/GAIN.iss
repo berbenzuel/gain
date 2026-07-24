@@ -5,4 +5,4 @@ DefaultDirName={autopf}\Common Files\VST3
 OutputBaseFilename=SSM_Installer
 
 [Files]
-Source: "..\target\bundled\gain_plugin.vst3"; DestDir: "{commoncf}\VST3"; Flags: recursesubdirs
+Source: "..\..\target\bundled\gain_plugin.vst3"; DestDir: "{commoncf}\VST3"
